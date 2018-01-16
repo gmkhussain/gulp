@@ -40,7 +40,7 @@ gulp.task('css', function(){
 
 ### How to combine multiple minify JS files into one with using GulpJS
 
-```
+```javascript
 var gulp = require('gulp');
 var minifyjs = require('gulp-js-minify');
 var concat = require('gulp-concat');
@@ -51,5 +51,38 @@ gulp.task('headerjs', function() {
     .pipe(concat('all.js'))
 	.pipe(minifyjs())
     .pipe(gulp.dest('../front/js/'));
+});
+```
+
+
+
+### How run multiple bunch of sources in one gulp task
+```javascript
+...
+var merge = require('merge-stream');
+...
+
+
+gulp.task('prod', function() {
+	
+		var cssFiles = gulp.src(['../front/css/stylized.css', '../front/colorized.css'])
+			.pipe(minifyCSS())
+			.pipe(concat('style.bundle.css'))
+			.pipe(gulp.dest('../front/css'));
+	
+		var jsHeader = gulp.src(['../front/js/kodeized.js', '../front/js/bootstrap.min.js'])
+			.pipe(concat('all_header.bundle.js'))
+			.pipe(minifyjs())
+			.pipe(gulp.dest('../front/js/'));
+		
+
+		var jsFooter = gulp.src(['../front/js/kodeized.js', '../front/js/bootstrap.min.js'])
+			.pipe(concat('all_footer.bundle.js'))
+			.pipe(minifyjs())
+			.pipe(gulp.dest('../front/js/'));
+		
+
+		return merge(cssFiles, jsHeader, jsFooter);
+  
 });
 ```
