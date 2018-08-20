@@ -18,6 +18,57 @@ Open Command line
 
 
 
+## Folder structure 
+```html
+<Root>
+|   gulpfile.js
+|   index.html
+|   package.json
+|   
++---assets
+|   +---css
+|   |       bootstrap.min.css
+|   |       stylized.css
+|   |       
+|   |       
+|   +---images
+|   |   |   contact-area-bg.jpg
+|   |   |   slide1.jpg
+|   |   |   
+|   |   \---image-subfolder
+|   |           project1.jpg
+|   |           project2.jpg
+|   |           
+|   +---js
+|   |       bootstrap.min.js
+|   |       customized.js
+|   |       jquery-2.2.4.min.js
+|   |       kodeized.js
+|   |       
+|   \---scss
+|           style.scss
+|           
++---build
+|   +---css
+|   |       style.bundle.css
+|   |       style.css
+|   |       
+|   +---images
+|   |   |   contact-area-bg.jpg
+|   |   |   dashboard1.jpg
+|   |   |   
+|   |   \---portfolio
+|   |           project1.jpg
+|   |           project2.jpg
+|   |           
+|   \---js
+|           footer.bundle.js
+|           header.bundle.js
+
+```	
+
+
+
 ### gulpfile.js
 ```javascript
 var gulp = require('gulp'),
