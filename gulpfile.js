@@ -50,6 +50,7 @@ gulp.task('sass', () => {
 
   
 });
+
 /*
 gulp.task('html', () => {
   pump([
@@ -59,8 +60,8 @@ gulp.task('html', () => {
     gulp.dest(dest.html)
   ]);
 });
-
 */
+
 gulp.task('js', () => {
   pump([
     gulp.src(src.js),
